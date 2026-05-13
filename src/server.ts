@@ -113,6 +113,28 @@ try {
 }
 })
 
+app.delete("/api/users/:id",async(req:Request,res:Response)=>{
+  const {id} = req.params;
+  const result = await pool.query(`DELETE FROM users WHERE id=$1`,[id])
+  try {
+  if(result.rows.length === 0){
+    res.status(404).json({success:true,
+    message:"No data find here man",
+    data: {}
+  })
+  }
+  res.status(200).json({success:true,
+    message:"Data updated successfully",
+    data: result.rows[0]
+  })
+} catch (error) {
+  res.status(404).json({success:false,
+    message:"failed",
+    data: {}
+  })
+}
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
