@@ -5,8 +5,9 @@ import express, {
 } from "express";
 import { json } from "node:stream/consumers";
 import { Pool } from "pg";
+import config from "./config";
 const app: Application = express();
-const port = 3000;
+const port = config.port;
 
 // middleware
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use(express.text());
 
 const pool = new Pool({
   connectionString:
-    "postgresql://neondb_owner:npg_Tyiu25FlaxLM@ep-young-wave-aqzkt3rc-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+    config.connection_string,
 });
 
 const initdb = async () => {
@@ -125,7 +126,7 @@ app.delete("/api/users/:id",async(req:Request,res:Response)=>{
   }
   res.status(200).json({success:true,
     message:"Data updated successfully",
-    data: result.rows[0]
+    data: {message:"hello"}
   })
 } catch (error) {
   res.status(404).json({success:false,
