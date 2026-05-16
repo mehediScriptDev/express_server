@@ -5,6 +5,7 @@ import express, {
 } from "express";
 import {  pool } from "./db";
 import userRouter from "./modules/users/user.route";
+import profilesRoute from "./modules/profiles/profile.route";
 const app: Application = express();
 
 // middleware
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(express.text());
 
 
-
+app.use("/api/profiles",profilesRoute)
 app.use("/api/users",userRouter)
 
 app.use("/api/users/:id",userRouter)

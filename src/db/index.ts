@@ -25,6 +25,21 @@ export const initdb = async () => {
       
     )`);
     console.log("connected your first database man!!");
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS profiles(
+      user_id INT UNIQUE REFERENCES users(id) ON DELETE CASCADE ,
+      bio TEXT,
+      address TEXT,
+      phone VARCHAR(15),
+      email VARCHAR(255),
+      gender VARCHAR(10),
+      
+      created_at TIMESTAMP DEFAULT NOW(),
+      updated_at TIMESTAMP DEFAULT NOW()
+      )
+
+      `)
   } catch (error) {
     console.log(error);
   }
