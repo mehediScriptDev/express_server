@@ -22,7 +22,7 @@ const getUser = async (req: Request, res: Response) => {
     .json({ success: true, message: "data exists bro", data: result.rows });
 }
 const getUserDetails = async (req:Request,res: Response)=>{
-  async (req: Request, res: Response) => {
+  
   const { id } = req.params;
   try {
     const result = await userService.getUserDetailss(id as string)
@@ -45,7 +45,7 @@ const getUserDetails = async (req:Request,res: Response)=>{
       error: error,
     });
   }
-}
+
 }
 const updateUser = async (req: Request,res:Response)=>{
   const {id} = req.params;
