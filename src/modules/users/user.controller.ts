@@ -47,54 +47,12 @@ const getUserDetails = async (req:Request,res: Response)=>{
   }
 
 }
-const updateUser = async (req: Request,res:Response)=>{
-  const {id} = req.params;
-  const {name,email,password,is_active} = req.body;
-  const result = await userService.updateUser(req.body,id as string)
 
-try {
-  if(result.rows.length === 0){
-    res.status(404).json({success:true,
-    message:"No data find here man",
-    data: {}
-  })
-  }
-  res.status(200).json({success:true,
-    message:"Data updated successfully",
-    data: result.rows[0]
-  })
-} catch (error) {
-  res.status(404).json({success:false,
-    message:"failed",
-    data: {}
-  })
-}
-}
-const deleteUser = async(req:Request,res:Response)=>{
-  const {id} = req.params;
-  const result = await userService.deleteUser(id as string)
-  try {
-  if(result.rows.length === 0){
-    res.status(404).json({success:true,
-    message:"No data find here man",
-    data: {}
-  })
-  }
-  res.status(200).json({success:true,
-    message:"Data updated successfully",
-    data: {message:"hello"}
-  })
-} catch (error) {
-  res.status(404).json({success:false,
-    message:"failed",
-    data: {}
-  })
-}
-}
+
 const userController={
 createUser,
 getUser,
-getUserDetails,updateUser,deleteUser
+getUserDetails
 } 
 
 export default userController;

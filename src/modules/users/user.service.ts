@@ -19,14 +19,5 @@ const getUserDetailss = async (id:string)=>{
   const result = await pool.query(`SELECT * FROM users WHERE id=$1`, [id]);
   return result;
 }
-const updateUser = async(payload:iUser, id:string)=>{
-  const {name,email,password,is_active} = payload;
-  const result = await pool.query(`UPDATE users SET name=COALESCE($1,name), email=COALESCE($2,email), password=COALESCE($3,password), is_active=COALESCE($4,is_active) WHERE id=$5 RETURNING *`,[name,email,password,is_active,id])
-  return result;
-}
-const deleteUser = async(id:string)=>{
-  const result = await pool.query(`DELETE FROM users WHERE id=$1`,[id])
-  return result;
-}
-const userService ={createUserDb,getUser,getUserDetailss,updateUser,deleteUser}
+const userService ={createUserDb,getUser,getUserDetailss}
 export default userService;
