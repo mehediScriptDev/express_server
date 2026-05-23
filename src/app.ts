@@ -13,12 +13,14 @@ app.use(express.json());
 app.use(express.text());
 
 
-app.use("/api/profiles",profilesRoute)
+
 app.use("/api/users",userRouter)
 
 app.use("/api/users/:id",userRouter)
 
 app.use("/api/users", userRouter)
+
+app.use("/api/profiles",profilesRoute)
 
 
 

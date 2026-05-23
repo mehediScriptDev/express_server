@@ -72,8 +72,9 @@ try {
 }
 const deleteUser = async(req:Request,res:Response)=>{
   const {id} = req.params;
-  const result = await userService.deleteUser(id as string)
+  
   try {
+    const result = await userService.deleteUser(id as string)
   if(result.rows.length === 0){
     res.status(404).json({success:true,
     message:"No data find here man",
@@ -81,8 +82,8 @@ const deleteUser = async(req:Request,res:Response)=>{
   })
   }
   res.status(200).json({success:true,
-    message:"Data updated successfully",
-    data: {message:"hello"}
+    message:"Data deleted successfully",
+    data: {message:"deleted man. happy now?"}
   })
 } catch (error) {
   res.status(404).json({success:false,
