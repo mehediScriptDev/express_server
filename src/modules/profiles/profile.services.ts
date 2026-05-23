@@ -10,6 +10,9 @@ const createProfileIntoDb = async (payload: any) => {
   );
 
   return result.rows[0];
+  if(result.rows.length === 0) {
+    throw new Error("Failed to create profile");
+  }
 };
 
 const profileServices = {
