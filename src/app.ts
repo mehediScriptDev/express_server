@@ -6,6 +6,7 @@ import express, {
 import {  pool } from "./db";
 import userRouter from "./modules/users/user.route";
 import profilesRoute from "./modules/profiles/profile.route";
+import authRoute from "./modules/auth/auth.route";
 const app: Application = express();
 
 // middleware
@@ -20,6 +21,7 @@ app.use("/api/users/:id",userRouter)
 
 app.use("/api/profiles",profilesRoute)
 
+app.use("/api/auth",authRoute)
 
 
 
