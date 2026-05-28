@@ -1,5 +1,6 @@
 import { error } from "node:console";
 import { pool } from "../../db";
+import jwt from "jsonwebtoken";
 
 const loginUserIntoDb =  async(payload:{email:string,password:string})=>{
 const {email,password} = payload;
