@@ -1,13 +1,33 @@
 import type { Request, Response } from "express";
-import { pool } from "../../db";
+import jwt from "jsonwebtoken";
+import config from "../../config";
 import userService from "./user.service";
 
 const createUser = async (req: Request, res: Response) => {
     //  const { name, email, password } = req.body;
   try {
-   
     const result = await userService.createUserDb(req.body)
-    res.status(201).json({ data: result.rows[0] });
+    const user = result.rows[0];
+
+    const token = jwt.sign(
+      {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        is_active: user.is_active,
+      },
+      config.secret as string,
+      { expiresIn: "1d" },
+    );
+
+    res.status(201).json({
+      success: true,
+      message: "user created successfully",
+      data: {
+        user,
+        token,
+      },
+    });
   } catch (error: any) {
     res
       .status(500)

@@ -1,2 +1,38 @@
 Method- GET - Url- /api/users - Time- 1780210255569Method- GET - Url- /api/users - Time- 1780210608410/nMethod- GET - Url- /api/users - Time- 1780210686850/n
 Method- GET - Url- /api/users - Time- 1780210727725
+
+Method- POST - Url- /api/auth - Time- 1780217020263
+
+Method- POST - Url- /api/auth - Time- 1780217325602
+
+Method- POST - Url- /api/users - Time- 1780217430681
+
+Method- POST - Url- /api/users - Time- 1780217452961
+
+Method- POST - Url- /api/users - Time- 1780217488297
+
+Method- POST - Url- /api/users - Time- 1780217653425
+
+Method- POST - Url- /api/users - Time- 1780217661030
+
+Method- GET - Url- /api/users - Time- 1780218017258
+
+Method- GET - Url- /api/users - Time- 1780218054724
+
+Method- GET - Url- /api/users - Time- 1780218443287
+
+Method- GET - Url- /api/users - Time- 1780218452979
+
+Method- GET - Url- /api/users - Time- 1780218455862
+
+Method- GET - Url- /api/users - Time- 1780218457398
+
+Method- GET - Url- /api/users - Time- 1780218516792
+
+Method- GET - Url- /api/users - Time- 1780218724475
+
+Method- GET - Url- /api/users - Time- 1780218863846
+
+Method- GET - Url- /api/users - Time- 1780218864479
+
+Method- GET - Url- /api/users - Time- 1780218891632

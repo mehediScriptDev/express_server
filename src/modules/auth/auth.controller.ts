@@ -1,16 +1,16 @@
 import type { Request, Response } from "express";
-import { log } from "node:console";
 import authServices from "./auth.service";
 
 const loginUser = async (req: Request, res: Response) => {
   try {
-    const result = await authServices.loginUserIntoDb(req.body);
+    const token = await authServices.loginUserIntoDb(req.body);
     res.status(201).json({
+      success: true,
       message: "logged in successfully",
-      data: {},
+      data: { token },
     });
   } catch (error:any) {
-    res.status(404).json({ success: false, message: "failed", data: {} });
+    res.status(404).json({ success: false, message: error.message || "failed", data: {} });
   }
 };
 
