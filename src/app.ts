@@ -15,9 +15,7 @@ app.use(express.text());
 app.use(logger);
 
 
-app.use("/api/users",userRouter)
-
-app.use("/api/users/:id",userRouter)
+app.use("/api/users", userRouter)
 
 app.use("/api/profiles",profilesRoute)
 

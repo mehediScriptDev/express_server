@@ -9,14 +9,15 @@ const createProfileIntoDb = async (payload: any) => {
     [user_id, bio, address, phone, email, gender]
   );
 
-  return result.rows[0];
-  if(result.rows.length === 0) {
+  if (result.rows.length === 0) {
     throw new Error("Failed to create profile");
   }
+
+  return result.rows[0];
 };
 
 const profileServices = {
-  createProfileIntoDb
+  createProfileIntoDb,
 };
 
 export default profileServices;
